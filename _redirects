@@ -1,1 +1,3 @@
+/signup
+/login
 /password-reset/:id/:token
