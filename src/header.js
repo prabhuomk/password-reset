@@ -19,7 +19,7 @@ export function Header({ isToken, setIsToken }) {
       <AppBar position="sticky">
         <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
-            <h3>GUVI_ZEN</h3>
+            <h3>PASSWORD-RESET</h3>
           </div>
           <div>
             <Button onClick={() => history.push("/")} color="inherit">
