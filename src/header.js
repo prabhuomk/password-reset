@@ -5,13 +5,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 
-export function Header() {
+export function Header({ isToken, setIsToken }) {
   const history = useHistory();
-  const isToken = localStorage.getItem("token");
   console.log(isToken);
   const Logout = () => {
-    localStorage.removeItem("token");
+    localStorage.setItem("token", "");
+    setIsToken("");
     history.push("/");
+
   };
   return (
     <div>
@@ -24,7 +25,7 @@ export function Header() {
             <Button onClick={() => history.push("/")} color="inherit">
               HOME
             </Button>
-            {isToken === null ? (
+            {isToken === "" ? (
               <>
                 <Button onClick={() => history.push("/signup")} color="inherit">
                   signup

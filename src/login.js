@@ -16,7 +16,7 @@ const UserSchema = yup.object().shape({
   password: yup.string().required()
 });
 
-export function Login() {
+export function Login({ setIsToken }) {
   const {
     register,
     handleSubmit,
@@ -38,8 +38,9 @@ export function Login() {
       .then((data) => data.json())
       .then((data) => {
         if (data.email_id) {
+          console.log(data.token);
           localStorage.setItem("token", data.token);
-          console.log(data);
+          setIsToken(data.token);
           alert(data.message);
           history.push("/welcome");
         } else {
