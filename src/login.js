@@ -39,6 +39,7 @@ export function Login() {
       .then((data) => {
         if (data.email_id) {
           localStorage.setItem("token", data.token);
+          console.log(data);
           alert(data.message);
           history.push("/welcome");
         } else {
